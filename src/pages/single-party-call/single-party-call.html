@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-divider color="light-grey">
+      Credentials
+    </ion-item-divider>
+    <form (ngSubmit)="credentialsForm()">
+      <ion-input
+        name="accessToken"
+        [(ngModel)]="access_token"
+        placeholder="Your access token"
+        color="primary"
+        type="text">
+      </ion-input>
+      <button ion-button type="submit" full>Connect</button>
+      <label>disconnected</label>
+    </form>
+
+    <form (ngSubmit)="dialerForm()">
+      <ion-item-divider color="light-grey">
+        Dialer
+      </ion-item-divider>
+      <ion-input
+        name="invitee"
+        [(ngModel)]="address"
+        placeholder="Person ID or Email Address or SIP URI or Room ID"
+        type="text">
+      </ion-input>
+      <button ion-button type="submit" full>Dial</button>
+    </form>
+
+    <ion-item-divider color="light-grey">
+      Call Controls
+    </ion-item-divider>
+    <button ion-button title="hangup" color="danger" (click)="hangup();" type="button" full> Cancel / Hangup</button>
+
+  </ion-list>
+
+  <div style="display: flex">
+    <video style="width:50%" id="self-view" muted autoplay></video>
+    <div style="width:50%">
+      <audio id="remote-view-audio" autoplay></audio>
+      <video id="remote-view-video" autoplay></video>
+    </div>
+  </div>
+
+  <!-- /bundle.js is the bundled CiscoSpark Browser SDK -->
+  <script src="../../../bundle.js"></script>
+
+</ion-content>
